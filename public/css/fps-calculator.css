@@ -1,0 +1,199 @@
+:root {
+    --bg-primary: #f3f4f6;
+    --bg-secondary: #ffffff;
+    --text-primary: #000000;
+    --border-primary: #d1d5db;
+    --select-bg: #ffffff;
+    --select-text: #000000;
+    --hover-bg: #e5e7eb;
+    --gradient-bg: linear-gradient(135deg, #e5e7eb, #f3f4f6);
+}
+
+html.dark {
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --text-primary: #ffffff;
+    --border-primary: #4b5563;
+    --select-bg: #374151;
+    --select-text: #ffffff;
+    --hover-bg: #4b5563;
+    --gradient-bg: linear-gradient(135deg, #1f2937, #111827);
+}
+
+body {
+    background: var(--gradient-bg) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-container {
+    background-color: var(--bg-secondary) !important;
+    border: 1px solid var(--border-primary) !important;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.text-gray-700, .text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+.bg-gray-200 {
+    background-color: var(--hover-bg) !important;
+}
+
+.hover\:bg-gray-300:hover {
+    background-color: var(--hover-bg) !important;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-results__option,
+.select2-dropdown {
+    background-color: var(--select-bg) !important;
+    color: var(--select-text) !important;
+    border-color: var(--border-primary) !important;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select2-container--default .select2-selection--single:focus,
+.select2-container--default .select2-selection--single:hover {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.select2-container--default .select2-selection__rendered,
+.select2-container--default .select2-selection__placeholder,
+.select2-container--default .select2-search__field {
+    background-color: var(--select-bg) !important;
+    color: var(--select-text) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0.5rem;
+}
+
+html.dark .hover\:bg-gray-100:hover {
+    background-color: #1e3a8a !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+    position: relative;
+    overflow: hidden;
+}
+
+.pulse::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    pointer-events: none;
+}
+
+.pulse:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    z-index: 10;
+    font-size: 0.875rem;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fps-green { color: #22c55e; }
+.fps-yellow { color: #eab308; }
+.fps-red { color: #ef4444; }
+
+.invalid-field {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+    .form-container {
+        padding: 1rem;
+    }
+
+    .grid-cols-3, .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .fa {
+        display: none;
+    }
+
+    table {
+        font-size: 0.875rem;
+    }
+
+    th, td {
+        padding: 0.5rem !important;
+    }
+}
